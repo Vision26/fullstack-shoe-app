@@ -7,11 +7,15 @@ const shoeSchema = new Schema({
         type: String,
         required: true
     },
+    imgUrl: {
+        type: String,
+        required: true
+    },
     shoeType: {
         type: String,
         required: true
     },
-    inventors: {
+    inventors:{
         type: String,
         required: true
     },
@@ -26,6 +30,11 @@ const shoeSchema = new Schema({
     likes: {
         type: Number,
         default: 0
+    },
+    brand: {
+        type: Schema.Types.ObjectId,
+        ref: "Brand",
+        required: true
     }
 })
 

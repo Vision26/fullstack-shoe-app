@@ -13,11 +13,37 @@ shoeRoute.get('/', (req, res, next) => {
     })
 })
 
+//Router - axios.get - get shoes by brand Id
+shoeRoute.get('/:brandId', (req, res, next) => {
+   Shoe.find({brand: req.params.brandId}, (err, brands) => {
+    if(err){
+        res.status(500)
+        return next(err)
+    }
+    return res.status(200).send(brands)
+   })
+})
+
+//Get specific item from database - axios.get - params
+shoeRoute.get('/:shoeId', (req, res, next) => {
+    Shoe.find(
+        { _id: req.params.shoeId },
+        (err, specific) => {
+            if (err) {
+                res.status(500)
+                return next(err)
+            }
+            return res.status(200).send(specific)
+        })
+})
+
+
 //database = axios.post - add
-shoeRoute.post('/', (req, res, next) => {
+shoeRoute.post('/:brandId', (req, res, next) => {
+    req.body.brand = req.params.brandId
     const createShoe = new Shoe(req.body)
     createShoe.save((err, addShoe) => {
-        if(err){
+        if (err) {
             res.status(500)
             return next(err)
         }
@@ -27,28 +53,43 @@ shoeRoute.post('/', (req, res, next) => {
 
 //database - axios.delete - delete a post
 shoeRoute.delete('/:shoeId', (req, res, next) => {
-Shoe.findOneAndDelete(
-    {_id: req.params.shoeId}, 
-    (err, deleteShoe) => {
-    if(err){
-        res.status(500)
-        return next(err)
-    }
-    return res.status(200).send(`${deleteShoe.name} Deleted.`)
-})
+    Shoe.findOneAndDelete(
+        { _id: req.params.shoeId },
+        (err, deleteShoe) => {
+            if (err) {
+                res.status(500)
+                return next(err)
+            }
+            return res.status(200).send(`${deleteShoe.name} Deleted.`)
+        })
 })
 
 //database - axios.put - update a post
 shoeRoute.put('/:shoeId', (req, res, next) => {
     Shoe.findOneAndUpdate(
-        {_id: req.params.shoeId},
-        red.body,
+        { _id: req.params.shoeId },
+        req.body,
         (err, update) => {
-            if(err){
+            if (err) {
                 res.status(500)
                 return next(err)
             }
             return res.status(201).send(update)
+        }
+    )
+})
+
+shoeRoute.put('/likes/:shoeId', (req, res, next) => {
+    Shoe.findOneAndUpdate(
+        {_id: req.params.shoeId},
+        {$inc:{likes:1}},
+        {new: true},
+        (err, upOne) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(upOne)
         }
     )
 })
