@@ -26,15 +26,6 @@ const shoeSchema = new Schema({
     description: {
         type: String,
         required: true
-    },
-    likes: {
-        type: Number,
-        default: 0
-    },
-    brand: {
-        type: Schema.Types.ObjectId,
-        ref: "Brand",
-        required: true
     }
 })
 

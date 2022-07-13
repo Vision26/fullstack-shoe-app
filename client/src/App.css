@@ -1,22 +1,10 @@
 *{
 margin: 0;
 padding: 0;
+background-color: black;
 }
 
-.footer-container{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color:#543;
-    color: white;
-    text-align: left;
-    font-family: monospace;
-    padding: 30px 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
+
 
 a {
 text-decoration: none;
@@ -86,7 +74,7 @@ color: wheat;
 
 .home-img-intro{
     position: relative;
-    height:50%;
+    height:55%;
     width: 100%;
     opacity: 0.5;
 }
@@ -103,7 +91,40 @@ color: wheat;
     font-size: 30px;
 }
 
+.shop-container{
+    border: 1px solid #333;
+    padding: 10px;
+    margin: 5px;
+}
 
+img{
+    width: 200px;
+    height: 200px;
+}
+
+ul li{
+    list-style-type: none;
+    color: wheat;
+}
+
+.footer-container{
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:#543;
+    color: white;
+    text-align: left;
+    font-family: monospace;
+    padding: 30px 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+input{
+    color:wheat;
+}
 @media (max-width: 600px){
     .header-container a:link{
         float: none;

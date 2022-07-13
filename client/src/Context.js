@@ -4,18 +4,30 @@ const Context = React.createContext()
 
 function ContextProvider(props){
 const [APIArr, setAPIArr] = useState([])
+const [collectorsArr, setCollectorsArr] = useState([])
 
-const axiosGet = () => {
-    axios.get('/shoeapi')
+const axiosGetShoeApi = () => {
+    axios.get(`/shoeapi`)
     .then(res => setAPIArr(res.data))
     .catch(err => console.log(err))
 }
 useEffect(() => {
-axiosGet()
+axiosGetShoeApi()
 }, [])
 console.log(APIArr)
+
+const axiosGetCollectors = () => {
+    axios.get('/collectors')
+    .then(res => setCollectorsArr(res.data))
+    .catch(err => console.log(err))
+}
+
+useEffect(() => {
+axiosGetCollectors()
+}, [])
+
     return(
-        <Context.Provider value={{APIArr}}>
+        <Context.Provider value={{APIArr, collectorsArr}}>
             {props.children}
         </Context.Provider>
     )

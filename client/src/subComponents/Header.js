@@ -8,8 +8,8 @@ function Header(){
             <a href="#" className="header-logo">DSC</a>
             <nav className="header-navBar">
             <Link to="/" className="link-a">Home</Link>
-            <Link to="/search" className="link-b">Search</Link>
-            <Link to="signup" className="link-c">Sign Up</Link>
+            <Link to="/library" className="link-b">Library</Link>
+            <Link to="/signup" className="link-c">Sign Up</Link>
             </nav>
         </div>
     )

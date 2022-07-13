@@ -11,8 +11,8 @@ mongoose.connect('mongodb://localhost:27017/shoedb',
 )
 
 app.use('/collectors', require('./routes/shoeRoute'))
-app.use('/brands', require('./routes/brandRoute'))
 app.use('/shoeapi', require('./routes/shoeAPIRoute'))
+app.use('/signup', require('./routes/signupRoute'))
 
 app.use((err, req, res, next) => {
     return res.send({
