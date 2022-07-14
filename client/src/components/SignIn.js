@@ -1,13 +1,17 @@
 import React from "react"
 import SignUpInputs from "../childComponents/SignUpInputs"
-// import Footer from "./Foo"
+// import "../App.css"
+// import Footer from "../subComponents/Footer"
 
 function SignIn(){
 
     return(
-        <div>
+        <div className="signin-container">
+            <h1>hello</h1>
             <SignUpInputs />
+            {/* <Footer /> */}
         </div>
+
     )
 }
 

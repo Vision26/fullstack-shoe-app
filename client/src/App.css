@@ -1,10 +1,8 @@
 *{
 margin: 0;
 padding: 0;
-background-color: black;
+/* background-color: black; */
 }
-
-
 
 a {
 text-decoration: none;
@@ -64,31 +62,41 @@ color: wheat;
 
 .images-text-centered{
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 80px;
     font-family: monospace;
     font-weight: bolder;
+    background-color: black;
+    color: wheat;
 }
 
 .home-img-intro{
     position: relative;
     height:55%;
     width: 100%;
-    opacity: 0.5;
+    opacity: 0.3;
+}
+
+.home-container{
+    background-color: black;
 }
 
 .images-text-centered-sub{
     position: absolute;
-    top: 69%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 100px;
     font-family:'Times New Roman', Times, serif;
     font-weight: bolder;
-    color: #333;
+    color:#333;
     font-size: 30px;
+}
+
+.library-container{
+    background-color: black;
 }
 
 .shop-container{
@@ -105,26 +113,53 @@ img{
 ul li{
     list-style-type: none;
     color: wheat;
+    font-family: monospace;
+}
+
+h1{
+    color:wheat;
 }
 
 .footer-container{
     position: relative;
-    left: 0;
-    bottom: 0;
+    top:80%;
     width: 100%;
     background-color:#543;
     color: white;
-    text-align: left;
+    /* text-align: left; */
     font-family: monospace;
     padding: 30px 16px;
-    display: flex;
+}
+
+.footer-container .footer-spans{
+     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-input{
-    color:wheat;
+.signin-container{
+    background-color: #543;
 }
+
+button{
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+  .add-btn{
+    background-color: wheat;
+  }
+
+
+  input{
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    margin: 5px;
+  }
+
 @media (max-width: 600px){
     .header-container a:link{
         float: none;

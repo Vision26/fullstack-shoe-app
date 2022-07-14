@@ -1,16 +1,28 @@
-import React, {useState} from "react"
+import React, { useState, useContext } from "react"
+import { Context } from "../Context"
 
 function SignUpInputs() {
-const [state, setState] = useState({
-    firstName:"",
-    lastName:"",
-    email:"",
-    password:""
-})
+    const { addPost } = useContext(Context)
+    const [state, setState] = useState({
+        firstName: "",
+        // lastName:"",
+        // email:"",
+        // submitPassword:""
+    })
 
-const handleSubmit = e => {
-    
+const handleChange = e => {
+    const { name, value } = e.target
+    setState(prev => ({
+        ...prev,
+        [ name ] : value
+    }))
 }
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        addPost(state)
+    }
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -19,28 +31,11 @@ const handleSubmit = e => {
                     placeholder="First Name"
                     name="firstName"
                     value={state.firstName}
-                // onChange={handleChange}
-                /> <input
-                    type="text"
-                    placeholder="Last Name"
-                    name="lastName"
-                    value={state.lastName}
-                // onChange={handleChange}
-                /> <input
-                    type="text"
-                    placeholder="Email"
-                    name="email"
-                    value={state.email}
-                // onChange={handleChange}
+                    onChange={handleChange}
                 />
-                <input
-                    type="text"
-                    placeholder="Password"
-                    name="password"
-                    value={state.password}
-                // onChange={handleChange}
-                />
+                <button className="add-btn">Submit</button>
             </form>
+
         </div>
     )
 }

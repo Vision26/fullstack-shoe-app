@@ -12,12 +12,14 @@ function App() {
   return (
     <div className="app-body">
       <Header />
+      <div>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/library" element={<Library />} />
-        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignIn />} />
       </Routes>
-      <Footer />
+      </div>
+   {/* <Footer /> */}
     </div>
   )
 }

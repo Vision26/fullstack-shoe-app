@@ -16,7 +16,7 @@ app.use('/signup', require('./routes/signupRoute'))
 
 app.use((err, req, res, next) => {
     return res.send({
-        errMsg: err
+        errMsg: `${err}`
     })
 })
 

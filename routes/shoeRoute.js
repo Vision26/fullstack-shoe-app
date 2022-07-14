@@ -53,7 +53,7 @@ shoeRoute.get('/', (req, res, next) => {
 
 shoeRoute.post('/', (req, res, next) => {
     const createNew= new Shoe(req.body)
-    createShoe.save((err, addNew) => {
+    createNew.save((err, addNew) => {
         if (err) {
             res.status(500)
             return next(err)
