@@ -7,7 +7,6 @@ function SignIn(){
 
     return(
         <div className="signin-container">
-            <h1>hello</h1>
             <SignUpInputs />
             {/* <Footer /> */}
         </div>

@@ -5,16 +5,16 @@ const signUpSchema = new Schema({
     firstName:{
         type: String
     }
-    // ,
-    // lastName:{
-    //     type: String
-    // },
-    // email:{
-    //     type: String
-    // },
-    // password:{
-    //     type: String
-    // }
+    ,
+    lastName:{
+        type: String
+    },
+    setEmail:{
+        type: String
+    },
+    setPassword:{
+        type: String
+    }
 })
 
 module.exports = mongoose.model('SignUp', signUpSchema)
