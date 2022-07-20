@@ -1,14 +1,27 @@
-import React from "react"
+import React, { useContext } from "react"
+import { Context } from "../Context"
 import SignUpInputs from "../childComponents/SignUpInputs"
+import SignInForm from "../childComponents/SignInForm"
 // import "../App.css"
-// import Footer from "../subComponents/Footer"
+import Footer from "../subComponents/Footer"
 
-function SignIn(){
+function SignIn() {
+    const { signUpArr, editSignUp, delSignUp, addPost } = useContext(Context)
 
-    return(
+    return (
         <div className="signin-container">
-            <SignUpInputs />
-            {/* <Footer /> */}
+            <SignUpInputs 
+            submit={addPost}
+            btnText="Submit"
+            />
+            
+            {signUpArr.map(sign => <SignInForm
+                key={sign.firstName}
+                edit={editSignUp}
+                deleteSignUp={delSignUp}
+                {...sign}
+            />)}
+            <Footer />
         </div>
 
     )

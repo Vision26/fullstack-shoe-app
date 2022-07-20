@@ -1,13 +1,15 @@
 import React, { useState, useContext } from "react"
-import { Context } from "../Context"
+// import { Context } from "../Context"
 
-function SignUpInputs() {
-    const { addPost } = useContext(Context)
+function SignUpInputs(props) {
+    // const { addPost, signUpArr } = useContext(Context)
+    const { firstName, lastName, setEmail, setPassword, id, submit, btnText } = props
+    // const { submit } = props
     const [state, setState] = useState({
-        firstName: "",
-        lastName: "",
-        setEmail:"",
-        setPassword:""
+        firstName: firstName || '',
+        lastName: lastName || '',
+        setEmail: setEmail || '',
+        setPassword: setPassword || ''
     })
 
     const handleChange = e => {
@@ -20,12 +22,13 @@ function SignUpInputs() {
 
     const handleSubmit = e => {
         e.preventDefault()
-        addPost(state)
-
+        // addPost(state, _id)
+        submit(state, id)
     }
 
     return (
         <div className="sign-container">
+            {/* <h1></h1> */}
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -58,7 +61,7 @@ function SignUpInputs() {
                 value={state.setPassword}
                 onChange={handleChange}
                 />
-                <button className="add-btn">Submit</button>
+                <button className="add-btn">{btnText}</button>
             </form>
 
         </div>

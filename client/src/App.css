@@ -9,11 +9,17 @@ text-decoration: none;
 color: wheat;
 }
 
+.app-body{
+    display: grid;
+    grid-template-rows: 50px 300px 50px;
+}
+
 .header-container{
     /* position: fixed; */
     background-color: #333;
   overflow: hidden;
   color: antiquewhite;
+  grid-row: 1 / 2;
 }
 
 .header-container a:link{
@@ -129,6 +135,8 @@ h1{
     /* text-align: left; */
     font-family: monospace;
     padding: 30px 16px;
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
 }
 
 .footer-container .footer-spans{
@@ -142,9 +150,33 @@ h1{
 } */
 
 .sign-container{
-    background-color: #543;
-    height: 100%;
+    background-color: black;
+    display:flex;
+    flex-direction: column;
+    margin: 0 32px;
 }
+
+.signform{
+    background-color: black;
+    border: 1px solid #333;
+  padding: 10px;
+  margin: 5px;
+  color: bisque;
+  }
+
+  form{
+    border: 1px solid #333;
+    padding: 10px;
+    margin: 5px;
+  }
+
+  input{
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    margin: 5px;
+  }
 
 button{
     padding: 5px;
@@ -154,13 +186,23 @@ button{
 
   .add-btn{
     background-color: wheat;
-    margin: 0;
+    /* margin: 0;
     position: absolute;
     top: 40%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width:5%;
+    width:5%; */
+  }
+
+  .delete-btn {
+    background-color: maroon;
+    font-size: 16;
+  }
+
+  .edit-btn{
+    background-color:wheat;
+    color: black;
   }
 
 

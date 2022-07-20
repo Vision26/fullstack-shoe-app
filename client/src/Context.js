@@ -28,13 +28,15 @@ useEffect(() => {
 axiosGetCollectors()
 }, [])
 
+//put - collectors
+
 const axiosSignUp = () => {
     axios.get('/signup')
     .then(res => setSignUp(res.data))
 }
 
 useEffect(() => {
-axiosSignUp()
+    axiosSignUp()
 }, [])
 
 const addPost = newPost => {
@@ -42,9 +44,23 @@ const addPost = newPost => {
     .then(res => setSignUp(prev => [...prev, res.data]))
     .catch(err => console.log(err))
 }
+const editSignUp = (update, updateId) => {
+    axios.put(`/signup/${updateId}`, update)
+    .then(res => setSignUp(prev => prev.map(prevs => prevs._id !== updateId ? prevs : res.data)))
+    .catch(err => console.log(err))
+}
+
+//delete - collectors
+const delSignUp = Id => {
+    axios.delete(`/signup/${Id}`)
+    .then(res => setSignUp(prev => prev.filter(prevs => {
+        return prevs._id !== Id
+    })))
+    .catch(err => console.log(err))
+}
 console.log(signUpArr)
     return(
-        <Context.Provider value={{APIArr, collectorsArr, addPost}}>
+        <Context.Provider value={{APIArr, collectorsArr, addPost, signUpArr, editSignUp, delSignUp}}>
             {props.children}
         </Context.Provider>
     )

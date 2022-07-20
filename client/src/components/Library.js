@@ -1,17 +1,18 @@
 import React, { useState, useContext } from "react"
 import { Context } from "../Context"
-import ShopImage from "../childComponents/ShopImage"
+import LibraryImage from "../childComponents/LibraryImage"
 import Footer from "../subComponents/Footer"
 
-function Shop(){
+function Library(){
 const { collectorsArr } = useContext(Context)
 
     return(
         <div className="library-container">
-           {collectorsArr.slice(0, 7).map(collector => <ShopImage key={collector.name} {...collector}/>)}
+            <h1>Search</h1>
+           {collectorsArr.slice(0, 7).map(collector => <LibraryImage key={collector.name} {...collector}/>)}
            <Footer />
         </div>
     )
 }
 
-export default Shop
+export default Library

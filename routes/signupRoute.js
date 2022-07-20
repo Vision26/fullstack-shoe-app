@@ -23,4 +23,31 @@ signUpRoute.post('/', (req, res, next) => {
     })
 })
 
+signUpRoute.delete('/:signId', (req, res, next) => {
+    SignUp.findOneAndDelete(
+        {_id: req.params.signId},
+        (err, delSign) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            res.status(200).send(`${delSign.firstName} Deleted.`)
+        }
+        )
+})
+
+signUpRoute.put('/:signId', (req, res, next) => {
+    SignUp.findOneAndUpdate(
+        {_id: req.params.signId},
+        req.body,
+        {new: true},
+        (err, updated) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(updated)
+        }
+    )
+})
 module.exports = signUpRoute

@@ -1,6 +1,6 @@
 import React from "react"
 
-function ShopImage(props){
+function LibraryImage(props){
 const { imgUrl, name, shoeType, inventors, yearCreated, description} = props
 
     return(
@@ -17,4 +17,4 @@ const { imgUrl, name, shoeType, inventors, yearCreated, description} = props
     )
 }
 
-export default ShopImage
+export default LibraryImage
